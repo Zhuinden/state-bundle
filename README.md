@@ -19,25 +19,20 @@ All other `Bundle` types work. But as this is a non-Android Parcelable class, it
 
 In order to use State Bundle, you need to add jitpack to your project root gradle:
 
-    buildscript {
-        repositories {
-            // ...
-            maven { url "https://jitpack.io" }
-        }
+```groovy
+allprojects {
+    repositories {
         // ...
+        maven { url "https://jitpack.io" }
     }
-    allprojects {
-        repositories {
-            // ...
-            maven { url "https://jitpack.io" }
-        }
-        // ...
-    }
-
+    // ...
+}
+```
 
 and add the compile dependency to your module level gradle.
-
-    compile 'com.github.Zhuinden:state-bundle:1.0.0'
+```groovy
+compile 'com.github.Zhuinden:state-bundle:1.0.0'
+```
 
 ## License
 
