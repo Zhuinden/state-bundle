@@ -29,8 +29,6 @@ import java.util.Set;
 
 /**
  * Parcelable representation of Bundle, independent from the Android framework.
- *
- * Used as the contract for {@link Bundleable}.
  */
 public class StateBundle
         implements Parcelable {
