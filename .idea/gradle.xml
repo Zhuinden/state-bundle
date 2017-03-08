@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/state-bundle" />
+            <option value="$PROJECT_DIR$/state-bundle-example" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
