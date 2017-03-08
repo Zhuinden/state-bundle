@@ -2,6 +2,42 @@
 
 A non-Android (albeit Parcelable) replacement for `android.os.Bundle`.
 
+## What's it for?
+
+Ever written any unit tests where you had to mock a Bundle?
+
+You get:
+
+> `Bundle.putString(String, String)` is not mocked.
+
+And it's pretty annoying, isn't it?
+
+However, you can use `StateBundle` in place of `Bundle` to overcome this problem.
+
+Instead of:
+
+    public Bundle toBundle() {
+        Bundle bundle = BundleProvider.create();
+        bundle.putString("hello", "world");
+        return bundle;
+    }
+
+    savedInstanceState.putBundle("bundle", presenter.toBundle());
+    Bundle bundle = savedInstanceState.getBundle("bundle");
+
+You can do:
+
+    public StateBundle toBundle() {
+        StateBundle bundle = new StateBundle();
+        bundle.putString("hello", "world");
+        return bundle;
+    }
+
+    savedInstanceState.putParcelable("stateBundle", presenter.toBundle());
+    StateBundle bundle = savedInstanceState.getParcelable("stateBundle");
+
+## Notes
+
 The following types are NOT supported:
 
 - `String[]`
