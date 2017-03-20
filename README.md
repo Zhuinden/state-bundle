@@ -37,7 +37,7 @@ In order to use State Bundle, you need to add jitpack to your project root gradl
 
 and add the compile dependency to your module level gradle.
 
-    compile 'com.github.Zhuinden:state-bundle:1.0.0'
+    compile 'com.github.Zhuinden:state-bundle:1.0.1'
 
 ## License
 
