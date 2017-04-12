@@ -1,5 +1,11 @@
 # Change log
 
+-State Bundle 1.1.0 (2017-04-12)
+--------------------------------
+- Implemented `toString()` in a repeatable manner.
+- Implemented custom `equals()`. Relies on stored elements to also correctly override `equals()`.
+- Implemented custom `hashCode()`. Relies on stored elements to also correctly override `hashCode()`.
+
 -State Bundle 1.0.1 (2017-03-20)
 --------------------------------
 MinSDK decreased to 1.

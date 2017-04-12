@@ -697,4 +697,59 @@ public class StateBundleTest {
         stateBundle.putBoolean("key", true);
         assertThat(stateBundle.getSparseParcelableArray("key")).isNull();
     }
+
+    private void setupStateBundle(StateBundle stateBundle) {
+        stateBundle.putBoolean("boolean", true);
+        stateBundle.putByte("byte", (byte) 0x01);
+        stateBundle.putChar("char", 'F');
+        stateBundle.putShort("short", (short) 14);
+        stateBundle.putInt("int", 515);
+        stateBundle.putLong("long", 123L);
+        stateBundle.putFloat("float", 0.54f);
+        stateBundle.putDouble("double", 0.123);
+        stateBundle.putString("string", "Hello Wordl!");
+        stateBundle.putCharSequence("charSequence", "World Hello");
+        stateBundle.putSerializable("serializable", "Boop");
+        stateBundle.putIntegerArrayList("integerArrayList", new ArrayList<Integer>() {{
+            add(5);
+        }});
+        stateBundle.putStringArrayList("stringArrayList", new ArrayList<String>() {{
+            add("hello");
+        }});
+        stateBundle.putCharSequenceArrayList("charSequenceArrayList", new ArrayList<CharSequence>() {{
+            add("asd");
+            add("def");
+        }});
+        stateBundle.putBooleanArray("booleanArray", new boolean[]{true, false});
+        stateBundle.putByteArray("byteArray", new byte[]{(byte) 0x01, (byte) 0x02});
+        stateBundle.putShortArray("shortArray", new short[]{(short) 1, (short) 2});
+        stateBundle.putCharArray("charArray", new char[]{'A', 'B'});
+        stateBundle.putIntArray("intArray", new int[]{1, 2});
+        stateBundle.putLongArray("longArray", new long[]{1L, 2L});
+        stateBundle.putFloatArray("floatArray", new float[]{0.25f, 0.5f});
+        stateBundle.putDoubleArray("doubleArray", new double[]{0.25, 0.5});
+
+        StateBundle otherBundle = new StateBundle();
+        otherBundle.putString("hello", "world");
+        stateBundle.putBundle("stateBundle", otherBundle);
+        stateBundle.putParcelable("parcelable", otherBundle);
+        final TestKey testKey = new TestKey("hello");
+        final TestKey testKey2 = new TestKey("world");
+        stateBundle.putParcelableArrayList("parcelableArrayList", new ArrayList<Parcelable>() {{
+            add(testKey);
+            add(testKey2);
+        }});
+    }
+
+    @Test
+    public void equalsWorks() {
+        StateBundle stateBundle = new StateBundle();
+        StateBundle stateBundle1 = new StateBundle();
+        setupStateBundle(stateBundle);
+        setupStateBundle(stateBundle1);
+        assertThat(stateBundle).isEqualTo(stateBundle1);
+        assertThat(stateBundle.hashCode()).isEqualTo(stateBundle1.hashCode());
+
+        System.out.println(stateBundle.toString());
+    }
 }

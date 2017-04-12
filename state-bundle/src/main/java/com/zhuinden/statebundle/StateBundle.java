@@ -23,6 +23,7 @@ import android.util.SparseArray;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -1501,13 +1502,150 @@ public class StateBundle
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(Map.Entry<String, Object> entry : map.entrySet()) {
-            stringBuilder.append("[[");
+        int i = 0;
+        Set<Map.Entry<String, Object>> entrySet = map.entrySet();
+        for(Map.Entry<String, Object> entry : entrySet) {
+            stringBuilder.append("{[");
             stringBuilder.append(entry.getKey());
-            stringBuilder.append("] :: [");
-            stringBuilder.append(entry.getValue());
-            stringBuilder.append("]]\n");
+            stringBuilder.append("]::[");
+
+            int type = typeMap.get(entry.getKey());
+            if(entry.getValue() == null) {
+                stringBuilder.append("<null>");
+            } else if(type == type_BooleanArray) {
+                stringBuilder.append(Arrays.toString((boolean[]) entry.getValue()));
+            } else if(type == type_ByteArray) {
+                stringBuilder.append(Arrays.toString((byte[]) entry.getValue()));
+            } else if(type == type_ShortArray) {
+                stringBuilder.append(Arrays.toString((short[]) entry.getValue()));
+            } else if(type == type_CharArray) {
+                stringBuilder.append(Arrays.toString((char[]) entry.getValue()));
+            } else if(type == type_IntArray) {
+                stringBuilder.append(Arrays.toString((int[]) entry.getValue()));
+            } else if(type == type_LongArray) {
+                stringBuilder.append(Arrays.toString((long[]) entry.getValue()));
+            } else if(type == type_FloatArray) {
+                stringBuilder.append(Arrays.toString((float[]) entry.getValue()));
+            } else if(type == type_DoubleArray) {
+                stringBuilder.append(Arrays.toString((double[]) entry.getValue()));
+            } else {
+                stringBuilder.append(entry.getValue());
+            }
+            stringBuilder.append("]}");
+            ++i;
+            if(i < entrySet.size()) {
+                stringBuilder.append(" ");
+            }
         }
         return stringBuilder.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 0;
+        Set<Map.Entry<String, Object>> entrySet = map.entrySet();
+        for(Map.Entry<String, Object> entry : entrySet) {
+            result += 31 * entry.getKey().hashCode();
+            int type = typeMap.get(entry.getKey());
+            if(entry.getValue() == null) {
+                result += 0;
+            } else if(type == type_BooleanArray) {
+                result += 31 * (Arrays.hashCode((boolean[]) entry.getValue()));
+            } else if(type == type_ByteArray) {
+                result += 31 * (Arrays.hashCode((byte[]) entry.getValue()));
+            } else if(type == type_ShortArray) {
+                result += 31 * (Arrays.hashCode((short[]) entry.getValue()));
+            } else if(type == type_CharArray) {
+                result += 31 * (Arrays.hashCode((char[]) entry.getValue()));
+            } else if(type == type_IntArray) {
+                result += 31 * (Arrays.hashCode((int[]) entry.getValue()));
+            } else if(type == type_LongArray) {
+                result += 31 * (Arrays.hashCode((long[]) entry.getValue()));
+            } else if(type == type_FloatArray) {
+                result += 31 * (Arrays.hashCode((float[]) entry.getValue()));
+            } else if(type == type_DoubleArray) {
+                result += 31 * (Arrays.hashCode((double[]) entry.getValue()));
+            } else {
+                result += 31 * entry.getValue().hashCode();
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) {
+            return false;
+        }
+        if(!(obj instanceof StateBundle)) {
+            return false;
+        }
+        StateBundle other = (StateBundle) obj;
+        for(Map.Entry<String, ?> stored : map.entrySet()) {
+            if(!other.containsKey(stored.getKey())) {
+                return false;
+            }
+            if(!other.typeMap.containsKey(stored.getKey())) {
+                return false;
+            }
+            int type = typeMap.get(stored.getKey());
+            if(!other.typeMap.get(stored.getKey()).equals(type)) {
+                return false;
+            }
+            Object thisObj = stored.getValue();
+            Object thatObj = other.get(stored.getKey());
+            if(thisObj == null && thatObj == null) {
+                continue;
+            }
+            if((thisObj == null && thatObj != null) || (thisObj != null && thatObj == null)) {
+                return false;
+            }
+            if(type == type_BooleanArray) {
+                boolean eq = Arrays.equals((boolean[]) thisObj, (boolean[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_ByteArray) {
+                boolean eq = Arrays.equals((byte[]) thisObj, (byte[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_ShortArray) {
+                boolean eq = Arrays.equals((short[]) thisObj, (short[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_CharArray) {
+                boolean eq = Arrays.equals((char[]) thisObj, (char[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_IntArray) {
+                boolean eq = Arrays.equals((int[]) thisObj, (int[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_LongArray) {
+                boolean eq = Arrays.equals((long[]) thisObj, (long[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_FloatArray) {
+                boolean eq = Arrays.equals((float[]) thisObj, (float[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_DoubleArray) {
+                boolean eq = Arrays.equals((double[]) thisObj, (double[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else {
+                if(!thisObj.equals(thatObj)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
