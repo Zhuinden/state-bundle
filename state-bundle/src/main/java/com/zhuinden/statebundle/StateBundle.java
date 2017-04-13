@@ -1504,37 +1504,41 @@ public class StateBundle
         StringBuilder stringBuilder = new StringBuilder();
         int i = 0;
         Set<Map.Entry<String, Object>> entrySet = map.entrySet();
-        for(Map.Entry<String, Object> entry : entrySet) {
-            stringBuilder.append("{[");
-            stringBuilder.append(entry.getKey());
-            stringBuilder.append("]::[");
+        if(entrySet.isEmpty()) {
+            stringBuilder.append("[]");
+        } else {
+            for(Map.Entry<String, Object> entry : entrySet) {
+                stringBuilder.append("{[");
+                stringBuilder.append(entry.getKey());
+                stringBuilder.append("]::[");
 
-            int type = typeMap.get(entry.getKey());
-            if(entry.getValue() == null) {
-                stringBuilder.append("<null>");
-            } else if(type == type_BooleanArray) {
-                stringBuilder.append(Arrays.toString((boolean[]) entry.getValue()));
-            } else if(type == type_ByteArray) {
-                stringBuilder.append(Arrays.toString((byte[]) entry.getValue()));
-            } else if(type == type_ShortArray) {
-                stringBuilder.append(Arrays.toString((short[]) entry.getValue()));
-            } else if(type == type_CharArray) {
-                stringBuilder.append(Arrays.toString((char[]) entry.getValue()));
-            } else if(type == type_IntArray) {
-                stringBuilder.append(Arrays.toString((int[]) entry.getValue()));
-            } else if(type == type_LongArray) {
-                stringBuilder.append(Arrays.toString((long[]) entry.getValue()));
-            } else if(type == type_FloatArray) {
-                stringBuilder.append(Arrays.toString((float[]) entry.getValue()));
-            } else if(type == type_DoubleArray) {
-                stringBuilder.append(Arrays.toString((double[]) entry.getValue()));
-            } else {
-                stringBuilder.append(entry.getValue());
-            }
-            stringBuilder.append("]}");
-            ++i;
-            if(i < entrySet.size()) {
-                stringBuilder.append(" ");
+                int type = typeMap.get(entry.getKey());
+                if(entry.getValue() == null) {
+                    stringBuilder.append("<null>");
+                } else if(type == type_BooleanArray) {
+                    stringBuilder.append(Arrays.toString((boolean[]) entry.getValue()));
+                } else if(type == type_ByteArray) {
+                    stringBuilder.append(Arrays.toString((byte[]) entry.getValue()));
+                } else if(type == type_ShortArray) {
+                    stringBuilder.append(Arrays.toString((short[]) entry.getValue()));
+                } else if(type == type_CharArray) {
+                    stringBuilder.append(Arrays.toString((char[]) entry.getValue()));
+                } else if(type == type_IntArray) {
+                    stringBuilder.append(Arrays.toString((int[]) entry.getValue()));
+                } else if(type == type_LongArray) {
+                    stringBuilder.append(Arrays.toString((long[]) entry.getValue()));
+                } else if(type == type_FloatArray) {
+                    stringBuilder.append(Arrays.toString((float[]) entry.getValue()));
+                } else if(type == type_DoubleArray) {
+                    stringBuilder.append(Arrays.toString((double[]) entry.getValue()));
+                } else {
+                    stringBuilder.append(entry.getValue());
+                }
+                stringBuilder.append("]}");
+                ++i;
+                if(i < entrySet.size()) {
+                    stringBuilder.append(" ");
+                }
             }
         }
         return stringBuilder.toString();
