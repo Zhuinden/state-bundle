@@ -1,5 +1,9 @@
 # Change log
 
+-State Bundle 1.1.1 (2017-04-14)
+--------------------------------
+- `toString()` will write `[]` instead of empty string, if the state bundle is empty.
+
 -State Bundle 1.1.0 (2017-04-12)
 --------------------------------
 - Implemented `toString()` in a repeatable manner.
