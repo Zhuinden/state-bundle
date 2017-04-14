@@ -291,11 +291,12 @@ public class StateBundle
      *
      * @param bundle a {@link StateBundle}
      */
-    public void putAll(StateBundle bundle) {
+    public StateBundle putAll(StateBundle bundle) {
         if(bundle.map != null) {
             map.putAll(bundle.map);
             typeMap.putAll(bundle.typeMap);
         }
+        return this;
     }
 
     /**
@@ -314,9 +315,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a boolean
      */
-    public void putBoolean(@Nullable String key, boolean value) {
+    public StateBundle putBoolean(@Nullable String key, boolean value) {
         map.put(key, value);
         typeMap.put(key, type_boolean);
+        return this;
     }
 
     /**
@@ -326,9 +328,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a byte
      */
-    public void putByte(@Nullable String key, byte value) {
+    public StateBundle putByte(@Nullable String key, byte value) {
         map.put(key, value);
         typeMap.put(key, type_byte);
+        return this;
     }
 
     /**
@@ -338,9 +341,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a char
      */
-    public void putChar(@Nullable String key, char value) {
+    public StateBundle putChar(@Nullable String key, char value) {
         map.put(key, value);
         typeMap.put(key, type_char);
+        return this;
     }
 
     /**
@@ -350,9 +354,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a short
      */
-    public void putShort(@Nullable String key, short value) {
+    public StateBundle putShort(@Nullable String key, short value) {
         map.put(key, value);
         typeMap.put(key, type_short);
+        return this;
     }
 
     /**
@@ -362,9 +367,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an int
      */
-    public void putInt(@Nullable String key, int value) {
+    public StateBundle putInt(@Nullable String key, int value) {
         map.put(key, value);
         typeMap.put(key, type_int);
+        return this;
     }
 
     /**
@@ -374,9 +380,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a long
      */
-    public void putLong(@Nullable String key, long value) {
+    public StateBundle putLong(@Nullable String key, long value) {
         map.put(key, value);
         typeMap.put(key, type_long);
+        return this;
     }
 
     /**
@@ -386,9 +393,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a float
      */
-    public void putFloat(@Nullable String key, float value) {
+    public StateBundle putFloat(@Nullable String key, float value) {
         map.put(key, value);
         typeMap.put(key, type_float);
+        return this;
     }
 
     /**
@@ -398,9 +406,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a double
      */
-    public void putDouble(@Nullable String key, double value) {
+    public StateBundle putDouble(@Nullable String key, double value) {
         map.put(key, value);
         typeMap.put(key, type_double);
+        return this;
     }
 
     /**
@@ -410,9 +419,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a String, or null
      */
-    public void putString(@Nullable String key, @Nullable String value) {
+    public StateBundle putString(@Nullable String key, @Nullable String value) {
         map.put(key, value);
         typeMap.put(key, type_String);
+        return this;
     }
 
     /**
@@ -422,9 +432,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a CharSequence, or null
      */
-    public void putCharSequence(@Nullable String key, @Nullable CharSequence value) {
+    public StateBundle putCharSequence(@Nullable String key, @Nullable CharSequence value) {
         map.put(key, value);
         typeMap.put(key, type_CharSequence);
+        return this;
     }
 
     /**
@@ -434,9 +445,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an ArrayList of Integer object, or null
      */
-    public void putIntegerArrayList(@Nullable String key, @Nullable ArrayList<Integer> value) {
+    public StateBundle putIntegerArrayList(@Nullable String key, @Nullable ArrayList<Integer> value) {
         map.put(key, value);
         typeMap.put(key, type_IntegerArrayList);
+        return this;
     }
 
     /**
@@ -446,9 +458,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an ArrayList of String object, or null
      */
-    public void putStringArrayList(@Nullable String key, @Nullable ArrayList<String> value) {
+    public StateBundle putStringArrayList(@Nullable String key, @Nullable ArrayList<String> value) {
         map.put(key, value);
         typeMap.put(key, type_StringArrayList);
+        return this;
     }
 
     /**
@@ -458,9 +471,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an ArrayList of CharSequence object, or null
      */
-    public void putCharSequenceArrayList(@Nullable String key, @Nullable ArrayList<CharSequence> value) {
+    public StateBundle putCharSequenceArrayList(@Nullable String key, @Nullable ArrayList<CharSequence> value) {
         map.put(key, value);
         typeMap.put(key, type_CharSequenceArrayList);
+        return this;
     }
 
     /**
@@ -470,9 +484,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a Serializable object, or null
      */
-    public void putSerializable(@Nullable String key, @Nullable Serializable value) {
+    public StateBundle putSerializable(@Nullable String key, @Nullable Serializable value) {
         map.put(key, value);
         typeMap.put(key, type_Serializable);
+        return this;
     }
 
     /**
@@ -482,9 +497,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a boolean array object, or null
      */
-    public void putBooleanArray(@Nullable String key, @Nullable boolean[] value) {
+    public StateBundle putBooleanArray(@Nullable String key, @Nullable boolean[] value) {
         map.put(key, value);
         typeMap.put(key, type_BooleanArray);
+        return this;
     }
 
     /**
@@ -494,9 +510,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a byte array object, or null
      */
-    public void putByteArray(@Nullable String key, @Nullable byte[] value) {
+    public StateBundle putByteArray(@Nullable String key, @Nullable byte[] value) {
         map.put(key, value);
         typeMap.put(key, type_ByteArray);
+        return this;
     }
 
     /**
@@ -506,9 +523,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a short array object, or null
      */
-    public void putShortArray(@Nullable String key, @Nullable short[] value) {
+    public StateBundle putShortArray(@Nullable String key, @Nullable short[] value) {
         map.put(key, value);
         typeMap.put(key, type_ShortArray);
+        return this;
     }
 
     /**
@@ -518,9 +536,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a char array object, or null
      */
-    public void putCharArray(@Nullable String key, @Nullable char[] value) {
+    public StateBundle putCharArray(@Nullable String key, @Nullable char[] value) {
         map.put(key, value);
         typeMap.put(key, type_CharArray);
+        return this;
     }
 
     /**
@@ -530,9 +549,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an int array object, or null
      */
-    public void putIntArray(@Nullable String key, @Nullable int[] value) {
+    public StateBundle putIntArray(@Nullable String key, @Nullable int[] value) {
         map.put(key, value);
         typeMap.put(key, type_IntArray);
+        return this;
     }
 
     /**
@@ -542,9 +562,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a long array object, or null
      */
-    public void putLongArray(@Nullable String key, @Nullable long[] value) {
+    public StateBundle putLongArray(@Nullable String key, @Nullable long[] value) {
         map.put(key, value);
         typeMap.put(key, type_LongArray);
+        return this;
     }
 
     /**
@@ -554,9 +575,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a float array object, or null
      */
-    public void putFloatArray(@Nullable String key, @Nullable float[] value) {
+    public StateBundle putFloatArray(@Nullable String key, @Nullable float[] value) {
         map.put(key, value);
         typeMap.put(key, type_FloatArray);
+        return this;
     }
 
     /**
@@ -566,9 +588,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a double array object, or null
      */
-    public void putDoubleArray(@Nullable String key, @Nullable double[] value) {
+    public StateBundle putDoubleArray(@Nullable String key, @Nullable double[] value) {
         map.put(key, value);
         typeMap.put(key, type_DoubleArray);
+        return this;
     }
 
     /**
@@ -578,9 +601,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a String array object, or null
      */
-//    public void putStringArray(@Nullable String key, @Nullable String[] value) {
+//    public StateBundle putStringArray(@Nullable String key, @Nullable String[] value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_StringArray);
+//        return this;
 //    }
 
     /**
@@ -590,9 +614,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a CharSequence array object, or null
      */
-//    public void putCharSequenceArray(@Nullable String key, @Nullable CharSequence[] value) {
+//    public StateBundle putCharSequenceArray(@Nullable String key, @Nullable CharSequence[] value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_CharSequenceArray);
+//        return this;
 //    }
 
 
@@ -603,9 +628,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a Parcelable object, or null
      */
-    public void putParcelable(@Nullable String key, @Nullable Parcelable value) {
+    public StateBundle putParcelable(@Nullable String key, @Nullable Parcelable value) {
         map.put(key, value);
         typeMap.put(key, type_Parcelable);
+        return this;
     }
 
     /**
@@ -615,9 +641,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a Size object, or null
      */
-//    public void putSize(@Nullable String key, @Nullable Size value) {
+//    public StateBundle putSize(@Nullable String key, @Nullable Size value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_Size);
+//        return this;
 //    }
 
     /**
@@ -627,9 +654,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a SizeF object, or null
      */
-//    public void putSizeF(@Nullable String key, @Nullable SizeF value) {
+//    public StateBundle putSizeF(@Nullable String key, @Nullable SizeF value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_SizeF);
+//        return this;
 //    }
 
     /**
@@ -640,9 +668,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an array of Parcelable objects, or null
      */
-//    public void putParcelableArray(@Nullable String key, @Nullable Parcelable[] value) {
+//    public StateBundle putParcelableArray(@Nullable String key, @Nullable Parcelable[] value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_ParcelableArray);
+//        return this;
 //    }
 
     /**
@@ -653,9 +682,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value an ArrayList of Parcelable objects, or null
      */
-    public void putParcelableArrayList(@Nullable String key, @Nullable ArrayList<? extends Parcelable> value) {
+    public StateBundle putParcelableArrayList(@Nullable String key, @Nullable ArrayList<? extends Parcelable> value) {
         map.put(key, value);
         typeMap.put(key, type_ParcelableArrayList);
+        return this;
     }
 
     /**
@@ -666,9 +696,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a SparseArray of Parcelable objects, or null
      */
-    public void putSparseParcelableArray(@Nullable String key, @Nullable SparseArray<? extends Parcelable> value) {
+    public StateBundle putSparseParcelableArray(@Nullable String key, @Nullable SparseArray<? extends Parcelable> value) {
         map.put(key, value);
         typeMap.put(key, type_SparseParcelableArray);
+        return this;
     }
 
     /**
@@ -678,9 +709,10 @@ public class StateBundle
      * @param key   a String, or null
      * @param value a Bundle object, or null
      */
-    public void putBundle(@Nullable String key, @Nullable StateBundle value) {
+    public StateBundle putBundle(@Nullable String key, @Nullable StateBundle value) {
         map.put(key, value);
         typeMap.put(key, type_StateBundle);
+        return this;
     }
 
     /**

@@ -1,5 +1,9 @@
 # Change log
 
+-State Bundle 1.1.2 (2017-04-14)
+--------------------------------
+- All `put*` methods return `this`.
+
 -State Bundle 1.1.1 (2017-04-14)
 --------------------------------
 - `toString()` will write `[]` instead of empty string, if the state bundle is empty.
