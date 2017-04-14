@@ -1,8 +1,10 @@
 # Change log
 
--State Bundle 1.1.2 (2017-04-14)
+-State Bundle 1.1.3 (2017-04-14)
 --------------------------------
 - All `put*` methods return `this`.
+- `clear()` also returns `this`.
+- `remove()` also returns `this`.
 
 -State Bundle 1.1.1 (2017-04-14)
 --------------------------------

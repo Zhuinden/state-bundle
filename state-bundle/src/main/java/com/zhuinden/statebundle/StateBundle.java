@@ -248,10 +248,13 @@ public class StateBundle
 
     /**
      * Removes all elements from the mapping of this Bundle.
+     *
+     * @return this bundle
      */
-    public void clear() {
+    public StateBundle clear() {
         map.clear();
         typeMap.clear();
+        return this;
     }
 
     /**
@@ -280,16 +283,19 @@ public class StateBundle
      * Removes any entry with the given key from the mapping of this Bundle.
      *
      * @param key a String key
+     * @return this bundle
      */
-    public void remove(String key) {
+    public StateBundle remove(String key) {
         map.remove(key);
         typeMap.remove(key);
+        return this;
     }
 
     /**
      * Inserts all mappings from the given StateBundle into this StateBundle.
      *
      * @param bundle a {@link StateBundle}
+     * @return this bundle
      */
     public StateBundle putAll(StateBundle bundle) {
         if(bundle.map != null) {
@@ -314,6 +320,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a boolean
+     * @return this bundle
      */
     public StateBundle putBoolean(@Nullable String key, boolean value) {
         map.put(key, value);
@@ -327,6 +334,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a byte
+     * @return this bundle
      */
     public StateBundle putByte(@Nullable String key, byte value) {
         map.put(key, value);
@@ -340,6 +348,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a char
+     * @return this bundle
      */
     public StateBundle putChar(@Nullable String key, char value) {
         map.put(key, value);
@@ -353,6 +362,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a short
+     * @return this bundle
      */
     public StateBundle putShort(@Nullable String key, short value) {
         map.put(key, value);
@@ -366,6 +376,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an int
+     * @return this bundle
      */
     public StateBundle putInt(@Nullable String key, int value) {
         map.put(key, value);
@@ -379,6 +390,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a long
+     * @return this bundle
      */
     public StateBundle putLong(@Nullable String key, long value) {
         map.put(key, value);
@@ -392,6 +404,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a float
+     * @return this bundle
      */
     public StateBundle putFloat(@Nullable String key, float value) {
         map.put(key, value);
@@ -402,6 +415,7 @@ public class StateBundle
     /**
      * Inserts a double value into the mapping of this Bundle, replacing
      * any existing value for the given key.
+     * @return this bundle
      *
      * @param key   a String, or null
      * @param value a double
@@ -418,6 +432,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a String, or null
+     * @return this bundle
      */
     public StateBundle putString(@Nullable String key, @Nullable String value) {
         map.put(key, value);
@@ -431,6 +446,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a CharSequence, or null
+     * @return this bundle
      */
     public StateBundle putCharSequence(@Nullable String key, @Nullable CharSequence value) {
         map.put(key, value);
@@ -444,6 +460,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an ArrayList of Integer object, or null
+     * @return this bundle
      */
     public StateBundle putIntegerArrayList(@Nullable String key, @Nullable ArrayList<Integer> value) {
         map.put(key, value);
@@ -457,6 +474,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an ArrayList of String object, or null
+     * @return this bundle
      */
     public StateBundle putStringArrayList(@Nullable String key, @Nullable ArrayList<String> value) {
         map.put(key, value);
@@ -470,6 +488,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an ArrayList of CharSequence object, or null
+     * @return this bundle
      */
     public StateBundle putCharSequenceArrayList(@Nullable String key, @Nullable ArrayList<CharSequence> value) {
         map.put(key, value);
@@ -483,6 +502,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a Serializable object, or null
+     * @return this bundle
      */
     public StateBundle putSerializable(@Nullable String key, @Nullable Serializable value) {
         map.put(key, value);
@@ -496,6 +516,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a boolean array object, or null
+     * @return this bundle
      */
     public StateBundle putBooleanArray(@Nullable String key, @Nullable boolean[] value) {
         map.put(key, value);
@@ -509,6 +530,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a byte array object, or null
+     * @return this bundle
      */
     public StateBundle putByteArray(@Nullable String key, @Nullable byte[] value) {
         map.put(key, value);
@@ -522,6 +544,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a short array object, or null
+     * @return this bundle
      */
     public StateBundle putShortArray(@Nullable String key, @Nullable short[] value) {
         map.put(key, value);
@@ -535,6 +558,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a char array object, or null
+     * @return this bundle
      */
     public StateBundle putCharArray(@Nullable String key, @Nullable char[] value) {
         map.put(key, value);
@@ -548,6 +572,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an int array object, or null
+     * @return this bundle
      */
     public StateBundle putIntArray(@Nullable String key, @Nullable int[] value) {
         map.put(key, value);
@@ -561,6 +586,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a long array object, or null
+     * @return this bundle
      */
     public StateBundle putLongArray(@Nullable String key, @Nullable long[] value) {
         map.put(key, value);
@@ -574,6 +600,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a float array object, or null
+     * @return this bundle
      */
     public StateBundle putFloatArray(@Nullable String key, @Nullable float[] value) {
         map.put(key, value);
@@ -587,6 +614,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a double array object, or null
+     * @return this bundle
      */
     public StateBundle putDoubleArray(@Nullable String key, @Nullable double[] value) {
         map.put(key, value);
@@ -600,6 +628,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a String array object, or null
+     * @return this bundle
      */
 //    public StateBundle putStringArray(@Nullable String key, @Nullable String[] value) {
 //        map.put(key, value);
@@ -613,6 +642,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a CharSequence array object, or null
+     * @return this bundle
      */
 //    public StateBundle putCharSequenceArray(@Nullable String key, @Nullable CharSequence[] value) {
 //        map.put(key, value);
@@ -627,6 +657,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a Parcelable object, or null
+     * @return this bundle
      */
     public StateBundle putParcelable(@Nullable String key, @Nullable Parcelable value) {
         map.put(key, value);
@@ -640,6 +671,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a Size object, or null
+     * @return this bundle
      */
 //    public StateBundle putSize(@Nullable String key, @Nullable Size value) {
 //        map.put(key, value);
@@ -653,6 +685,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a SizeF object, or null
+     * @return this bundle
      */
 //    public StateBundle putSizeF(@Nullable String key, @Nullable SizeF value) {
 //        map.put(key, value);
@@ -667,6 +700,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an array of Parcelable objects, or null
+     * @return this bundle
      */
 //    public StateBundle putParcelableArray(@Nullable String key, @Nullable Parcelable[] value) {
 //        map.put(key, value);
@@ -681,6 +715,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value an ArrayList of Parcelable objects, or null
+     * @return this bundle
      */
     public StateBundle putParcelableArrayList(@Nullable String key, @Nullable ArrayList<? extends Parcelable> value) {
         map.put(key, value);
@@ -695,6 +730,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a SparseArray of Parcelable objects, or null
+     * @return this bundle
      */
     public StateBundle putSparseParcelableArray(@Nullable String key, @Nullable SparseArray<? extends Parcelable> value) {
         map.put(key, value);
@@ -708,6 +744,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a Bundle object, or null
+     * @return this bundle
      */
     public StateBundle putBundle(@Nullable String key, @Nullable StateBundle value) {
         map.put(key, value);
@@ -1498,7 +1535,7 @@ public class StateBundle
     }
 
     // Log a message if the value was non-null but not of the expected type
-    void typeWarning(String key, Object value, String className, Object defaultValue, ClassCastException e) {
+    protected void typeWarning(String key, Object value, String className, Object defaultValue, ClassCastException e) {
         StringBuilder sb = new StringBuilder();
         sb.append("Key ");
         sb.append(key);
