@@ -130,7 +130,13 @@ public class StateBundle
         putAll(bundle);
     }
 
-    protected StateBundle(Parcel in) {
+    /**
+     * Constructs a Bundle using an Android Parcel.
+     * Used by Parcelable implementation.
+     *
+     * @param in the Parcel
+     */
+    public StateBundle(Parcel in) {
         int size = in.readInt();
         for(int i = 0; i < size; i++) {
             TypeElement typeElement = in.readParcelable(TypeElement.class.getClassLoader());

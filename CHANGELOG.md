@@ -1,5 +1,9 @@
 # Change log
 
+-State Bundle 1.1.4 (2017-04-16)
+--------------------------------
+- Make `StateBundle(Parcel in)` constructor public.
+
 -State Bundle 1.1.3 (2017-04-14)
 --------------------------------
 - All `put*` methods return `this`.
