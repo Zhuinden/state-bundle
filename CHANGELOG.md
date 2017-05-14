@@ -1,5 +1,9 @@
 # Change log
 
+-State Bundle 1.1.5 (2017-05-14)
+--------------------------------
+- Better error message when `bundle.putAll()` is called with `null` (invalid) argument.
+
 -State Bundle 1.1.4 (2017-04-16)
 --------------------------------
 - Make `StateBundle(Parcel in)` constructor public.
