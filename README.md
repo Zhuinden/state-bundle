@@ -51,6 +51,8 @@ Please note that `ArrayList<T>` works instead of arrays, so `new ArrayList<>(Arr
 
 All other `Bundle` types work. But as this is a non-Android Parcelable class, it can be used without mocking.
 
+Also, because of how the `AlarmManager` works, custom parcelables (including `StateBundle`) shouldn't be used with `PendingIntent`.
+
 ## Using State Bundle
 
 In order to use State Bundle, you need to add jitpack to your project root gradle:
