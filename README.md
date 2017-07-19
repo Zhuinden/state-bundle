@@ -1,6 +1,6 @@
 # State Bundle
 
-A non-Android (albeit Parcelable) replacement for `android.os.Bundle`.
+A non-Android (albeit Parcelable) replacement for `android.os.Bundle`, that also implements `equals()`, `hashCode()` and `toString()`.
 
 ## What's it for?
 
