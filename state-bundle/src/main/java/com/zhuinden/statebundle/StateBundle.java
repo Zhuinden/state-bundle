@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.SparseArray;
 
@@ -124,9 +125,9 @@ public class StateBundle
      * Constructs a Bundle containing a copy of the mappings from the given
      * Bundle.
      *
-     * @param bundle a Bundle to be copied.
+     * @param bundle a Bundle to be copied, must not be null.
      */
-    public StateBundle(StateBundle bundle) {
+    public StateBundle(@NonNull StateBundle bundle) {
         putAll(bundle);
     }
 
@@ -303,7 +304,10 @@ public class StateBundle
      * @param bundle a {@link StateBundle}
      * @return this StateBundle
      */
-    public StateBundle putAll(StateBundle bundle) {
+    public StateBundle putAll(@NonNull StateBundle bundle) {
+        if(bundle == null) {
+            throw new IllegalArgumentException("The provided bundle should not be null!");
+        }
         if(bundle.map != null) {
             map.putAll(bundle.map);
             typeMap.putAll(bundle.typeMap);

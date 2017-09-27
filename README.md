@@ -1,6 +1,6 @@
 # State Bundle
 
-A non-Android (albeit Parcelable) replacement for `android.os.Bundle`.
+A non-Android (albeit Parcelable) replacement for `android.os.Bundle`, that also implements `equals()`, `hashCode()` and `toString()`.
 
 ## What's it for?
 
@@ -50,6 +50,8 @@ The following types are NOT supported:
 Please note that `ArrayList<T>` works instead of arrays, so `new ArrayList<>(Arrays.asList(array))` works.
 
 All other `Bundle` types work. But as this is a non-Android Parcelable class, it can be used without mocking.
+
+Also, because of how the `AlarmManager` works, custom parcelables (including `StateBundle`) shouldn't be used with `PendingIntent`.
 
 ## Using State Bundle
 
