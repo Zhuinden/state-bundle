@@ -1,5 +1,9 @@
 # Change log
 
+-State Bundle 1.2.1 (2018-07-26)
+--------------------------------
+- Fixed that `emptyStateBundle.equals(nonEmptyStateBundle)` incorrectly returned true.
+
 -State Bundle 1.2.0 (2017-09-27)
 --------------------------------
 - Added method `copyToBundle(Bundle)` which can copy the contents of a StateBundle into an android.os.Bundle.
