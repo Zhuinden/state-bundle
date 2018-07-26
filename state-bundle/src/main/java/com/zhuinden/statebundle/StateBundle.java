@@ -1664,6 +1664,9 @@ public class StateBundle
             return false;
         }
         StateBundle other = (StateBundle) obj;
+        if((this.map.isEmpty() && !((StateBundle) obj).map.isEmpty()) || (!this.map.isEmpty() && ((StateBundle) obj).map.isEmpty())) {
+            return false;
+        }
         for(Map.Entry<String, ?> stored : map.entrySet()) {
             if(!other.containsKey(stored.getKey())) {
                 return false;

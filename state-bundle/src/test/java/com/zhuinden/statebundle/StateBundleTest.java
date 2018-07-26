@@ -698,6 +698,29 @@ public class StateBundleTest {
         assertThat(stateBundle.getSparseParcelableArray("key")).isNull();
     }
 
+    @Test
+    public void testEqualsWorks() {
+        StateBundle stateBundle = new StateBundle();
+        StateBundle stateBundle1 = new StateBundle();
+        setupStateBundle(stateBundle);
+        setupStateBundle(stateBundle1);
+        assertThat(stateBundle).isEqualTo(stateBundle1);
+        assertThat(stateBundle.hashCode()).isEqualTo(stateBundle1.hashCode());
+
+        System.out.println(stateBundle.toString());
+    }
+
+    @Test
+    public void testEqualsWorksBetweenEmptyAndNonEmptyStateBundles() {
+        StateBundle stateBundle = new StateBundle();
+        StateBundle stateBundle1 = new StateBundle();
+        stateBundle.putString("hello", "world");
+
+        assertThat(stateBundle).isNotEqualTo(stateBundle1);
+        assertThat(stateBundle.equals(stateBundle1)).isFalse();
+        assertThat(stateBundle1.equals(stateBundle)).isFalse();
+    }
+
     private void setupStateBundle(StateBundle stateBundle) {
         stateBundle.putBoolean("boolean", true);
         stateBundle.putByte("byte", (byte) 0x01);
@@ -739,17 +762,5 @@ public class StateBundleTest {
             add(testKey);
             add(testKey2);
         }});
-    }
-
-    @Test
-    public void equalsWorks() {
-        StateBundle stateBundle = new StateBundle();
-        StateBundle stateBundle1 = new StateBundle();
-        setupStateBundle(stateBundle);
-        setupStateBundle(stateBundle1);
-        assertThat(stateBundle).isEqualTo(stateBundle1);
-        assertThat(stateBundle.hashCode()).isEqualTo(stateBundle1.hashCode());
-
-        System.out.println(stateBundle.toString());
     }
 }
