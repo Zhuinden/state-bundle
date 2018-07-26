@@ -763,4 +763,16 @@ public class StateBundleTest {
             add(testKey2);
         }});
     }
+
+    @Test
+    public void equalsWorks() {
+        StateBundle stateBundle = new StateBundle();
+        StateBundle stateBundle1 = new StateBundle();
+        setupStateBundle(stateBundle);
+        setupStateBundle(stateBundle1);
+        assertThat(stateBundle).isEqualTo(stateBundle1);
+        assertThat(stateBundle.hashCode()).isEqualTo(stateBundle1.hashCode());
+
+        System.out.println(stateBundle.toString());
+    }
 }

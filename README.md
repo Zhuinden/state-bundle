@@ -1,6 +1,6 @@
 # State Bundle
 
-A non-Android (albeit Parcelable) replacement for `android.os.Bundle`.
+A non-Android (albeit Parcelable) replacement for `android.os.Bundle`, that also implements `equals()`, `hashCode()` and `toString()`.
 
 ## What's it for?
 
@@ -51,6 +51,8 @@ Please note that `ArrayList<T>` works instead of arrays, so `new ArrayList<>(Arr
 
 All other `Bundle` types work. But as this is a non-Android Parcelable class, it can be used without mocking.
 
+Also, because of how the `AlarmManager` works, custom parcelables (including `StateBundle`) shouldn't be used with `PendingIntent`.
+
 ## Using State Bundle
 
 In order to use State Bundle, you need to add jitpack to your project root gradle:
@@ -68,7 +70,7 @@ allprojects {
 and add the compile dependency to your module level gradle.
 
 ```groovy
-compile 'com.github.Zhuinden:state-bundle:1.1.5'
+compile 'com.github.Zhuinden:state-bundle:1.2.0'
 ```
 
 ## License

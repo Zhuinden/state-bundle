@@ -16,6 +16,8 @@
 
 package com.zhuinden.statebundle;
 
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -109,8 +111,6 @@ public class StateBundle
     //static final int type_ParcelableArray = 28;
     //static final int type_Size = 24;
     //static final int type_SizeF = 25;
-
-    private static final String TAG = "StateBundle";
 
     Map<String, Object> map = new LinkedHashMap<>();
     Map<String, Integer> typeMap = new LinkedHashMap<>();
@@ -238,7 +238,7 @@ public class StateBundle
     };
 
     /**
-     * Returns the number of mappings contained in this Bundle.
+     * Returns the number of mappings contained in this StateBundle.
      *
      * @return the number of mappings as an int.
      */
@@ -247,16 +247,16 @@ public class StateBundle
     }
 
     /**
-     * Returns true if the mapping of this Bundle is empty, false otherwise.
+     * Returns true if the mapping of this StateBundle is empty, false otherwise.
      */
     public boolean isEmpty() {
         return map.isEmpty();
     }
 
     /**
-     * Removes all elements from the mapping of this Bundle.
+     * Removes all elements from the mapping of this StateBundle.
      *
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle clear() {
         map.clear();
@@ -266,7 +266,7 @@ public class StateBundle
 
     /**
      * Returns true if the given key is contained in the mapping
-     * of this Bundle.
+     * of this StateBundle.
      *
      * @param key a String key
      * @return true if the key is part of the mapping, false otherwise
@@ -287,10 +287,10 @@ public class StateBundle
     }
 
     /**
-     * Removes any entry with the given key from the mapping of this Bundle.
+     * Removes any entry with the given key from the mapping of this StateBundle.
      *
      * @param key a String key
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle remove(String key) {
         map.remove(key);
@@ -302,7 +302,7 @@ public class StateBundle
      * Inserts all mappings from the given StateBundle into this StateBundle.
      *
      * @param bundle a {@link StateBundle}
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putAll(@NonNull StateBundle bundle) {
         if(bundle == null) {
@@ -316,7 +316,7 @@ public class StateBundle
     }
 
     /**
-     * Returns a Set containing the Strings used as keys in this Bundle.
+     * Returns a Set containing the Strings used as keys in this StateBundle.
      *
      * @return a Set of String keys
      */
@@ -325,12 +325,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a Boolean value into the mapping of this Bundle, replacing
+     * Inserts a Boolean value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a boolean
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putBoolean(@Nullable String key, boolean value) {
         map.put(key, value);
@@ -339,12 +339,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a byte value into the mapping of this Bundle, replacing
+     * Inserts a byte value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
      *
      * @param key   a String, or null
      * @param value a byte
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putByte(@Nullable String key, byte value) {
         map.put(key, value);
@@ -353,12 +353,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a char value into the mapping of this Bundle, replacing
+     * Inserts a char value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
      *
      * @param key   a String, or null
      * @param value a char
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putChar(@Nullable String key, char value) {
         map.put(key, value);
@@ -367,12 +367,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a short value into the mapping of this Bundle, replacing
+     * Inserts a short value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
      *
      * @param key   a String, or null
      * @param value a short
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putShort(@Nullable String key, short value) {
         map.put(key, value);
@@ -381,12 +381,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts an int value into the mapping of this Bundle, replacing
+     * Inserts an int value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
      *
      * @param key   a String, or null
      * @param value an int
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putInt(@Nullable String key, int value) {
         map.put(key, value);
@@ -395,12 +395,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a long value into the mapping of this Bundle, replacing
+     * Inserts a long value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
      *
      * @param key   a String, or null
      * @param value a long
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putLong(@Nullable String key, long value) {
         map.put(key, value);
@@ -409,12 +409,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a float value into the mapping of this Bundle, replacing
+     * Inserts a float value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
      *
      * @param key   a String, or null
      * @param value a float
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putFloat(@Nullable String key, float value) {
         map.put(key, value);
@@ -423,9 +423,9 @@ public class StateBundle
     }
 
     /**
-     * Inserts a double value into the mapping of this Bundle, replacing
+     * Inserts a double value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
-     * @return this bundle
+     * @return this StateBundle
      *
      * @param key   a String, or null
      * @param value a double
@@ -437,12 +437,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a String value into the mapping of this Bundle, replacing
+     * Inserts a String value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a String, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putString(@Nullable String key, @Nullable String value) {
         map.put(key, value);
@@ -451,12 +451,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a CharSequence value into the mapping of this Bundle, replacing
+     * Inserts a CharSequence value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a CharSequence, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putCharSequence(@Nullable String key, @Nullable CharSequence value) {
         map.put(key, value);
@@ -465,12 +465,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts an ArrayList of Integer value into the mapping of this Bundle, replacing
+     * Inserts an ArrayList of Integer value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value an ArrayList of Integer object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putIntegerArrayList(@Nullable String key, @Nullable ArrayList<Integer> value) {
         map.put(key, value);
@@ -479,12 +479,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts an ArrayList of String value into the mapping of this Bundle, replacing
+     * Inserts an ArrayList of String value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value an ArrayList of String object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putStringArrayList(@Nullable String key, @Nullable ArrayList<String> value) {
         map.put(key, value);
@@ -493,12 +493,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts an ArrayList of CharSequence value into the mapping of this Bundle, replacing
+     * Inserts an ArrayList of CharSequence value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value an ArrayList of CharSequence object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putCharSequenceArrayList(@Nullable String key, @Nullable ArrayList<CharSequence> value) {
         map.put(key, value);
@@ -507,12 +507,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a Serializable value into the mapping of this Bundle, replacing
+     * Inserts a Serializable value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a Serializable object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putSerializable(@Nullable String key, @Nullable Serializable value) {
         map.put(key, value);
@@ -521,12 +521,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a boolean array value into the mapping of this Bundle, replacing
+     * Inserts a boolean array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a boolean array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putBooleanArray(@Nullable String key, @Nullable boolean[] value) {
         map.put(key, value);
@@ -535,12 +535,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a byte array value into the mapping of this Bundle, replacing
+     * Inserts a byte array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a byte array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putByteArray(@Nullable String key, @Nullable byte[] value) {
         map.put(key, value);
@@ -549,12 +549,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a short array value into the mapping of this Bundle, replacing
+     * Inserts a short array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a short array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putShortArray(@Nullable String key, @Nullable short[] value) {
         map.put(key, value);
@@ -563,12 +563,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a char array value into the mapping of this Bundle, replacing
+     * Inserts a char array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a char array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putCharArray(@Nullable String key, @Nullable char[] value) {
         map.put(key, value);
@@ -577,12 +577,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts an int array value into the mapping of this Bundle, replacing
+     * Inserts an int array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value an int array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putIntArray(@Nullable String key, @Nullable int[] value) {
         map.put(key, value);
@@ -591,12 +591,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a long array value into the mapping of this Bundle, replacing
+     * Inserts a long array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a long array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putLongArray(@Nullable String key, @Nullable long[] value) {
         map.put(key, value);
@@ -605,12 +605,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a float array value into the mapping of this Bundle, replacing
+     * Inserts a float array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a float array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putFloatArray(@Nullable String key, @Nullable float[] value) {
         map.put(key, value);
@@ -619,12 +619,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a double array value into the mapping of this Bundle, replacing
+     * Inserts a double array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a double array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putDoubleArray(@Nullable String key, @Nullable double[] value) {
         map.put(key, value);
@@ -633,12 +633,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a String array value into the mapping of this Bundle, replacing
+     * Inserts a String array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a String array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
 //    public StateBundle putStringArray(@Nullable String key, @Nullable String[] value) {
 //        map.put(key, value);
@@ -647,12 +647,12 @@ public class StateBundle
 //    }
 
     /**
-     * Inserts a CharSequence array value into the mapping of this Bundle, replacing
+     * Inserts a CharSequence array value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a CharSequence array object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
 //    public StateBundle putCharSequenceArray(@Nullable String key, @Nullable CharSequence[] value) {
 //        map.put(key, value);
@@ -662,12 +662,12 @@ public class StateBundle
 
 
     /**
-     * Inserts a Parcelable value into the mapping of this Bundle, replacing
+     * Inserts a Parcelable value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a Parcelable object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putParcelable(@Nullable String key, @Nullable Parcelable value) {
         map.put(key, value);
@@ -676,12 +676,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a Size value into the mapping of this Bundle, replacing
+     * Inserts a Size value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a Size object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
 //    public StateBundle putSize(@Nullable String key, @Nullable Size value) {
 //        map.put(key, value);
@@ -690,12 +690,12 @@ public class StateBundle
 //    }
 
     /**
-     * Inserts a SizeF value into the mapping of this Bundle, replacing
+     * Inserts a SizeF value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
      * @param value a SizeF object, or null
-     * @return this bundle
+     * @return this StateBundle
      */
 //    public StateBundle putSizeF(@Nullable String key, @Nullable SizeF value) {
 //        map.put(key, value);
@@ -704,13 +704,13 @@ public class StateBundle
 //    }
 
     /**
-     * Inserts an array of Parcelable values into the mapping of this Bundle,
+     * Inserts an array of Parcelable values into the mapping of this StateBundle,
      * replacing any existing value for the given key.  Either key or value may
      * be null.
      *
      * @param key   a String, or null
      * @param value an array of Parcelable objects, or null
-     * @return this bundle
+     * @return this StateBundle
      */
 //    public StateBundle putParcelableArray(@Nullable String key, @Nullable Parcelable[] value) {
 //        map.put(key, value);
@@ -719,13 +719,13 @@ public class StateBundle
 //    }
 
     /**
-     * Inserts a List of Parcelable values into the mapping of this Bundle,
+     * Inserts a List of Parcelable values into the mapping of this StateBundle,
      * replacing any existing value for the given key.  Either key or value may
      * be null.
      *
      * @param key   a String, or null
      * @param value an ArrayList of Parcelable objects, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putParcelableArrayList(@Nullable String key, @Nullable ArrayList<? extends Parcelable> value) {
         map.put(key, value);
@@ -740,7 +740,7 @@ public class StateBundle
      *
      * @param key   a String, or null
      * @param value a SparseArray of Parcelable objects, or null
-     * @return this bundle
+     * @return this StateBundle
      */
     public StateBundle putSparseParcelableArray(@Nullable String key, @Nullable SparseArray<? extends Parcelable> value) {
         map.put(key, value);
@@ -749,12 +749,12 @@ public class StateBundle
     }
 
     /**
-     * Inserts a Bundle value into the mapping of this Bundle, replacing
+     * Inserts a StateBundle value into the mapping of this StateBundle, replacing
      * any existing value for the given key.  Either key or value may be null.
      *
      * @param key   a String, or null
-     * @param value a Bundle object, or null
-     * @return this bundle
+     * @param value a StateBundle object, or null
+     * @return this StateBundle
      */
     public StateBundle putBundle(@Nullable String key, @Nullable StateBundle value) {
         map.put(key, value);
@@ -1561,6 +1561,106 @@ public class StateBundle
 
     void typeWarning(String key, Object value, String className, ClassCastException e) {
         typeWarning(key, value, className, "<null>", e);
+    }
+
+    /**
+     * Copies the keys and values of this {@link StateBundle} into the provided android.os.Bundle
+     */
+    public void copyToBundle(Bundle bundle) {
+        for(Map.Entry<String, Object> entry : map.entrySet()) {
+            int typeValue = typeMap.get(entry.getKey());
+            String key = entry.getKey();
+            Object object = entry.getValue();
+            switch(typeValue) {
+                case type_boolean:
+                    bundle.putBoolean(key, (Boolean) object);
+                    break;
+                case type_byte:
+                    bundle.putByte(key, (Byte) object);
+                    break;
+                case type_char:
+                    bundle.putChar(key, (Character) object);
+                    break;
+                case type_short:
+                    bundle.putShort(key, (Short) object);
+                    break;
+                case type_int:
+                    bundle.putInt(key, (Integer) object);
+                    break;
+                case type_long:
+                    bundle.putLong(key, (Long) object);
+                    break;
+                case type_float:
+                    bundle.putFloat(key, (Float) object);
+                    break;
+                case type_double:
+                    bundle.putDouble(key, (Double) object);
+                    break;
+                case type_String:
+                    bundle.putString(key, (String) object);
+                    break;
+                case type_CharSequence:
+                    bundle.putCharSequence(key, (CharSequence) object);
+                    break;
+                case type_Serializable:
+                    bundle.putSerializable(key, (Serializable) object);
+                    break;
+                case type_IntegerArrayList:
+                    // noinspection unchecked
+                    bundle.putIntegerArrayList(key, (ArrayList<Integer>) object);
+                    break;
+                case type_StringArrayList:
+                    // noinspection unchecked
+                    bundle.putStringArrayList(key, (ArrayList<String>) object);
+                    break;
+                case type_CharSequenceArrayList:
+                    if(Build.VERSION.SDK_INT >= 8) {
+                        // noinspection unchecked
+                        bundle.putCharSequenceArrayList(key, (ArrayList<CharSequence>) object);
+                    } else {
+                        throw new UnsupportedOperationException("CharSequenceArrayList not supported on API < 8.");
+                    }
+                    break;
+                case type_BooleanArray:
+                    bundle.putBooleanArray(key, (boolean[]) object);
+                    break;
+                case type_ByteArray:
+                    bundle.putByteArray(key, (byte[]) object);
+                    break;
+                case type_ShortArray:
+                    bundle.putShortArray(key, (short[]) object);
+                    break;
+                case type_CharArray:
+                    bundle.putCharArray(key, (char[]) object);
+                    break;
+                case type_IntArray:
+                    bundle.putIntArray(key, (int[]) object);
+                    break;
+                case type_LongArray:
+                    bundle.putLongArray(key, (long[]) object);
+                    break;
+                case type_FloatArray:
+                    bundle.putFloatArray(key, (float[]) object);
+                    break;
+                case type_DoubleArray:
+                    bundle.putDoubleArray(key, (double[]) object);
+                    break;
+                case type_StateBundle:
+                    bundle.putParcelable(key, (StateBundle) object);
+                    break;
+                case type_Parcelable:
+                    bundle.putParcelable(key, (Parcelable) object);
+                    break;
+                case type_ParcelableArrayList:
+                    // noinspection unchecked
+                    bundle.putParcelableArrayList(key, (ArrayList<Parcelable>) object);
+                    break;
+                case type_SparseParcelableArray:
+                    // noinspection unchecked
+                    bundle.putSparseParcelableArray(key, (SparseArray<Parcelable>) object);
+                    break;
+            }
+        }
     }
 
     @Override
