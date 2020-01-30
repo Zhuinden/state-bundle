@@ -1,5 +1,9 @@
 # Change log
 
+-State Bundle 1.2.2 (2020-01-30)
+--------------------------------
+- Fixed that `equals` only checked up to the number of keys found in the left side of the operation.
+
 -State Bundle 1.2.1 (2018-07-26)
 --------------------------------
 - Fixed that `emptyStateBundle.equals(nonEmptyStateBundle)` incorrectly returned true.

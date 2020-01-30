@@ -706,8 +706,6 @@ public class StateBundleTest {
         setupStateBundle(stateBundle1);
         assertThat(stateBundle).isEqualTo(stateBundle1);
         assertThat(stateBundle.hashCode()).isEqualTo(stateBundle1.hashCode());
-
-        System.out.println(stateBundle.toString());
     }
 
     @Test
@@ -765,14 +763,42 @@ public class StateBundleTest {
     }
 
     @Test
-    public void equalsWorks() {
+    public void equalsTrueWorks() {
         StateBundle stateBundle = new StateBundle();
         StateBundle stateBundle1 = new StateBundle();
         setupStateBundle(stateBundle);
         setupStateBundle(stateBundle1);
         assertThat(stateBundle).isEqualTo(stateBundle1);
         assertThat(stateBundle.hashCode()).isEqualTo(stateBundle1.hashCode());
+    }
 
-        System.out.println(stateBundle.toString());
+    @Test
+    public void equalsFalseWorks() {
+        StateBundle stateBundle = new StateBundle();
+        StateBundle stateBundle1 = new StateBundle();
+
+        stateBundle.putString("hello", "world");
+        stateBundle.putString("world", "world");
+
+        stateBundle1.putString("hello", "world");
+
+        assertThat(stateBundle).isNotEqualTo(stateBundle1);
+        assertThat(stateBundle1).isNotEqualTo(stateBundle);
+
+        assertThat(stateBundle.hashCode()).isNotEqualTo(stateBundle1.hashCode());
+    }
+
+    @Test
+    public void equalsTrueWorksInDifferentOrder() {
+        StateBundle stateBundle = new StateBundle();
+        StateBundle stateBundle1 = new StateBundle();
+
+        stateBundle.putString("hello", "world");
+        stateBundle.putString("world", "world");
+
+        stateBundle1.putString("world", "world");
+        stateBundle1.putString("hello", "world");
+
+        assertThat(stateBundle).isEqualTo(stateBundle1);
     }
 }

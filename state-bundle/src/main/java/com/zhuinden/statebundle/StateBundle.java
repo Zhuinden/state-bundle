@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
  *
+ * Copyright (C) 2017 Gabor Varadi
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1765,6 +1767,9 @@ public class StateBundle
         }
         StateBundle other = (StateBundle) obj;
         if((this.map.isEmpty() && !((StateBundle) obj).map.isEmpty()) || (!this.map.isEmpty() && ((StateBundle) obj).map.isEmpty())) {
+            return false;
+        }
+        if(this.map.size() != other.map.size()) {
             return false;
         }
         for(Map.Entry<String, ?> stored : map.entrySet()) {
