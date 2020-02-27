@@ -22,8 +22,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.SparseArray;
 
 import java.io.Serializable;
@@ -32,6 +30,9 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Parcelable representation of Bundle, independent from the Android framework.
@@ -129,7 +130,7 @@ public class StateBundle
      *
      * @param bundle a Bundle to be copied, must not be null.
      */
-    public StateBundle(@NonNull StateBundle bundle) {
+    public StateBundle(@Nonnull StateBundle bundle) {
         putAll(bundle);
     }
 
@@ -306,7 +307,7 @@ public class StateBundle
      * @param bundle a {@link StateBundle}
      * @return this StateBundle
      */
-    public StateBundle putAll(@NonNull StateBundle bundle) {
+    public StateBundle putAll(@Nonnull StateBundle bundle) {
         if(bundle == null) {
             throw new IllegalArgumentException("The provided bundle should not be null!");
         }

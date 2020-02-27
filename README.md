@@ -70,7 +70,7 @@ allprojects {
 and add the compile dependency to your module level gradle.
 
 ```groovy
-compile 'com.github.Zhuinden:state-bundle:1.2.2'
+implementation 'com.github.Zhuinden:state-bundle:1.3.0'
 ```
 
 ## License

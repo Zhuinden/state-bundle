@@ -1,5 +1,11 @@
 # Change log
 
+-State Bundle 1.3.0 (2020-02-27)
+--------------------------------
+- Replace `android.support.annotation.NonNull` and `android.support.annotation.Nullable` with `javax.annotation.Nonnull` and `javax.annotation.Nullable`.
+
+Adds dependency on `api 'com.google.code.findbugs:jsr305:3.0.2'`.
+
 -State Bundle 1.2.2 (2020-01-30)
 --------------------------------
 - Fixed that `equals` only checked up to the number of keys found in the left side of the operation.
