@@ -18,7 +18,6 @@
 
 package com.zhuinden.statebundle;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -38,9 +37,9 @@ import javax.annotation.Nullable;
  * Parcelable representation of Bundle, independent from the Android framework.
  */
 public class StateBundle
-        implements Parcelable {
+    implements Parcelable {
     static class TypeElement
-            implements Parcelable {
+        implements Parcelable {
         String key;
         int type;
 
@@ -109,11 +108,11 @@ public class StateBundle
     static final int type_ParcelableArrayList = 29;
     static final int type_SparseParcelableArray = 30;
 
-    //static final int type_StringArray = 22;
-    //static final int type_CharSequenceArray = 23;
-    //static final int type_ParcelableArray = 28;
-    //static final int type_Size = 24;
-    //static final int type_SizeF = 25;
+    static final int type_StringArray = 22;
+    static final int type_CharSequenceArray = 23;
+    static final int type_ParcelableArray = 28;
+//    static final int type_Size = 24;
+//    static final int type_SizeF = 25;
 
     Map<String, Object> map = new LinkedHashMap<>();
     Map<String, Integer> typeMap = new LinkedHashMap<>();
@@ -261,6 +260,7 @@ public class StateBundle
      *
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle clear() {
         map.clear();
         typeMap.clear();
@@ -295,6 +295,7 @@ public class StateBundle
      * @param key a String key
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle remove(String key) {
         map.remove(key);
         typeMap.remove(key);
@@ -307,6 +308,7 @@ public class StateBundle
      * @param bundle a {@link StateBundle}
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putAll(@Nonnull StateBundle bundle) {
         if(bundle == null) {
             throw new IllegalArgumentException("The provided bundle should not be null!");
@@ -323,6 +325,7 @@ public class StateBundle
      *
      * @return a Set of String keys
      */
+    @Nonnull
     public Set<String> keySet() {
         return map.keySet();
     }
@@ -335,6 +338,7 @@ public class StateBundle
      * @param value a boolean
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putBoolean(@Nullable String key, boolean value) {
         map.put(key, value);
         typeMap.put(key, type_boolean);
@@ -349,6 +353,7 @@ public class StateBundle
      * @param value a byte
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putByte(@Nullable String key, byte value) {
         map.put(key, value);
         typeMap.put(key, type_byte);
@@ -363,6 +368,7 @@ public class StateBundle
      * @param value a char
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putChar(@Nullable String key, char value) {
         map.put(key, value);
         typeMap.put(key, type_char);
@@ -377,6 +383,7 @@ public class StateBundle
      * @param value a short
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putShort(@Nullable String key, short value) {
         map.put(key, value);
         typeMap.put(key, type_short);
@@ -391,6 +398,7 @@ public class StateBundle
      * @param value an int
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putInt(@Nullable String key, int value) {
         map.put(key, value);
         typeMap.put(key, type_int);
@@ -405,6 +413,7 @@ public class StateBundle
      * @param value a long
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putLong(@Nullable String key, long value) {
         map.put(key, value);
         typeMap.put(key, type_long);
@@ -419,6 +428,7 @@ public class StateBundle
      * @param value a float
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putFloat(@Nullable String key, float value) {
         map.put(key, value);
         typeMap.put(key, type_float);
@@ -428,11 +438,12 @@ public class StateBundle
     /**
      * Inserts a double value into the mapping of this StateBundle, replacing
      * any existing value for the given key.
-     * @return this StateBundle
      *
      * @param key   a String, or null
      * @param value a double
+     * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putDouble(@Nullable String key, double value) {
         map.put(key, value);
         typeMap.put(key, type_double);
@@ -447,6 +458,7 @@ public class StateBundle
      * @param value a String, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putString(@Nullable String key, @Nullable String value) {
         map.put(key, value);
         typeMap.put(key, type_String);
@@ -461,6 +473,7 @@ public class StateBundle
      * @param value a CharSequence, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putCharSequence(@Nullable String key, @Nullable CharSequence value) {
         map.put(key, value);
         typeMap.put(key, type_CharSequence);
@@ -475,6 +488,7 @@ public class StateBundle
      * @param value an ArrayList of Integer object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putIntegerArrayList(@Nullable String key, @Nullable ArrayList<Integer> value) {
         map.put(key, value);
         typeMap.put(key, type_IntegerArrayList);
@@ -489,6 +503,7 @@ public class StateBundle
      * @param value an ArrayList of String object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putStringArrayList(@Nullable String key, @Nullable ArrayList<String> value) {
         map.put(key, value);
         typeMap.put(key, type_StringArrayList);
@@ -503,6 +518,7 @@ public class StateBundle
      * @param value an ArrayList of CharSequence object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putCharSequenceArrayList(@Nullable String key, @Nullable ArrayList<CharSequence> value) {
         map.put(key, value);
         typeMap.put(key, type_CharSequenceArrayList);
@@ -517,6 +533,7 @@ public class StateBundle
      * @param value a Serializable object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putSerializable(@Nullable String key, @Nullable Serializable value) {
         map.put(key, value);
         typeMap.put(key, type_Serializable);
@@ -531,6 +548,7 @@ public class StateBundle
      * @param value a boolean array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putBooleanArray(@Nullable String key, @Nullable boolean[] value) {
         map.put(key, value);
         typeMap.put(key, type_BooleanArray);
@@ -545,6 +563,7 @@ public class StateBundle
      * @param value a byte array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putByteArray(@Nullable String key, @Nullable byte[] value) {
         map.put(key, value);
         typeMap.put(key, type_ByteArray);
@@ -559,6 +578,7 @@ public class StateBundle
      * @param value a short array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putShortArray(@Nullable String key, @Nullable short[] value) {
         map.put(key, value);
         typeMap.put(key, type_ShortArray);
@@ -573,6 +593,7 @@ public class StateBundle
      * @param value a char array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putCharArray(@Nullable String key, @Nullable char[] value) {
         map.put(key, value);
         typeMap.put(key, type_CharArray);
@@ -587,6 +608,7 @@ public class StateBundle
      * @param value an int array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putIntArray(@Nullable String key, @Nullable int[] value) {
         map.put(key, value);
         typeMap.put(key, type_IntArray);
@@ -601,6 +623,7 @@ public class StateBundle
      * @param value a long array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putLongArray(@Nullable String key, @Nullable long[] value) {
         map.put(key, value);
         typeMap.put(key, type_LongArray);
@@ -615,6 +638,7 @@ public class StateBundle
      * @param value a float array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putFloatArray(@Nullable String key, @Nullable float[] value) {
         map.put(key, value);
         typeMap.put(key, type_FloatArray);
@@ -629,6 +653,7 @@ public class StateBundle
      * @param value a double array object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putDoubleArray(@Nullable String key, @Nullable double[] value) {
         map.put(key, value);
         typeMap.put(key, type_DoubleArray);
@@ -643,11 +668,12 @@ public class StateBundle
      * @param value a String array object, or null
      * @return this StateBundle
      */
-//    public StateBundle putStringArray(@Nullable String key, @Nullable String[] value) {
-//        map.put(key, value);
-//        typeMap.put(key, type_StringArray);
-//        return this;
-//    }
+    @Nonnull
+    public StateBundle putStringArray(@Nullable String key, @Nullable String[] value) {
+        map.put(key, value);
+        typeMap.put(key, type_StringArray);
+        return this;
+    }
 
     /**
      * Inserts a CharSequence array value into the mapping of this StateBundle, replacing
@@ -657,11 +683,12 @@ public class StateBundle
      * @param value a CharSequence array object, or null
      * @return this StateBundle
      */
-//    public StateBundle putCharSequenceArray(@Nullable String key, @Nullable CharSequence[] value) {
-//        map.put(key, value);
-//        typeMap.put(key, type_CharSequenceArray);
-//        return this;
-//    }
+    @Nonnull
+    public StateBundle putCharSequenceArray(@Nullable String key, @Nullable CharSequence[] value) {
+        map.put(key, value);
+        typeMap.put(key, type_CharSequenceArray);
+        return this;
+    }
 
 
     /**
@@ -672,6 +699,7 @@ public class StateBundle
      * @param value a Parcelable object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putParcelable(@Nullable String key, @Nullable Parcelable value) {
         map.put(key, value);
         typeMap.put(key, type_Parcelable);
@@ -686,6 +714,7 @@ public class StateBundle
      * @param value a Size object, or null
      * @return this StateBundle
      */
+//    @Nonnull
 //    public StateBundle putSize(@Nullable String key, @Nullable Size value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_Size);
@@ -700,6 +729,7 @@ public class StateBundle
      * @param value a SizeF object, or null
      * @return this StateBundle
      */
+//    @Nonnull
 //    public StateBundle putSizeF(@Nullable String key, @Nullable SizeF value) {
 //        map.put(key, value);
 //        typeMap.put(key, type_SizeF);
@@ -715,11 +745,12 @@ public class StateBundle
      * @param value an array of Parcelable objects, or null
      * @return this StateBundle
      */
-//    public StateBundle putParcelableArray(@Nullable String key, @Nullable Parcelable[] value) {
-//        map.put(key, value);
-//        typeMap.put(key, type_ParcelableArray);
-//        return this;
-//    }
+    @Nonnull
+    public StateBundle putParcelableArray(@Nullable String key, @Nullable Parcelable[] value) {
+        map.put(key, value);
+        typeMap.put(key, type_ParcelableArray);
+        return this;
+    }
 
     /**
      * Inserts a List of Parcelable values into the mapping of this StateBundle,
@@ -730,6 +761,7 @@ public class StateBundle
      * @param value an ArrayList of Parcelable objects, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putParcelableArrayList(@Nullable String key, @Nullable ArrayList<? extends Parcelable> value) {
         map.put(key, value);
         typeMap.put(key, type_ParcelableArrayList);
@@ -745,6 +777,7 @@ public class StateBundle
      * @param value a SparseArray of Parcelable objects, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putSparseParcelableArray(@Nullable String key, @Nullable SparseArray<? extends Parcelable> value) {
         map.put(key, value);
         typeMap.put(key, type_SparseParcelableArray);
@@ -759,6 +792,7 @@ public class StateBundle
      * @param value a StateBundle object, or null
      * @return this StateBundle
      */
+    @Nonnull
     public StateBundle putBundle(@Nullable String key, @Nullable StateBundle value) {
         map.put(key, value);
         typeMap.put(key, type_StateBundle);
@@ -772,7 +806,7 @@ public class StateBundle
      * @param key a String
      * @return a boolean value
      */
-    public boolean getBoolean(String key) {
+    public boolean getBoolean(@Nonnull String key) {
         return getBoolean(key, false);
     }
 
@@ -784,7 +818,7 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a boolean value
      */
-    public boolean getBoolean(String key, boolean defaultValue) {
+    public boolean getBoolean(@Nonnull String key, boolean defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -804,7 +838,7 @@ public class StateBundle
      * @param key a String
      * @return a byte value
      */
-    public byte getByte(String key) {
+    public byte getByte(@Nonnull String key) {
         return getByte(key, (byte) 0);
     }
 
@@ -816,7 +850,8 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a byte value
      */
-    public Byte getByte(String key, byte defaultValue) {
+    @Nonnull
+    public Byte getByte(@Nonnull String key, byte defaultValue) { // TODO: why is this Byte?
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -836,7 +871,7 @@ public class StateBundle
      * @param key a String
      * @return a char value
      */
-    public char getChar(String key) {
+    public char getChar(@Nonnull String key) {
         return getChar(key, (char) 0);
     }
 
@@ -848,13 +883,13 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a char value
      */
-    public char getChar(String key, char defaultValue) {
+    public char getChar(@Nonnull String key, char defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
         }
         try {
-            return (Character) o;
+            return (char) o;
         } catch(ClassCastException e) {
             typeWarning(key, o, "Character", defaultValue, e);
             return defaultValue;
@@ -868,7 +903,7 @@ public class StateBundle
      * @param key a String
      * @return a short value
      */
-    public short getShort(String key) {
+    public short getShort(@Nonnull String key) {
         return getShort(key, (short) 0);
     }
 
@@ -880,7 +915,7 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a short value
      */
-    public short getShort(String key, short defaultValue) {
+    public short getShort(@Nonnull String key, short defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -900,7 +935,7 @@ public class StateBundle
      * @param key a String
      * @return an int value
      */
-    public int getInt(String key) {
+    public int getInt(@Nonnull String key) {
         return getInt(key, 0);
     }
 
@@ -912,7 +947,7 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return an int value
      */
-    public int getInt(String key, int defaultValue) {
+    public int getInt(@Nonnull String key, int defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -932,7 +967,7 @@ public class StateBundle
      * @param key a String
      * @return a long value
      */
-    public long getLong(String key) {
+    public long getLong(@Nonnull String key) {
         return getLong(key, 0L);
     }
 
@@ -944,7 +979,7 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a long value
      */
-    public long getLong(String key, long defaultValue) {
+    public long getLong(@Nonnull String key, long defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -964,7 +999,7 @@ public class StateBundle
      * @param key a String
      * @return a float value
      */
-    public float getFloat(String key) {
+    public float getFloat(@Nonnull String key) {
         return getFloat(key, 0.0f);
     }
 
@@ -976,7 +1011,7 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a float value
      */
-    public float getFloat(String key, float defaultValue) {
+    public float getFloat(@Nonnull String key, float defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -996,7 +1031,7 @@ public class StateBundle
      * @param key a String
      * @return a double value
      */
-    public double getDouble(String key) {
+    public double getDouble(@Nonnull String key) {
         return getDouble(key, 0.0);
     }
 
@@ -1008,7 +1043,7 @@ public class StateBundle
      * @param defaultValue Value to return if key does not exist
      * @return a double value
      */
-    public double getDouble(String key, double defaultValue) {
+    public double getDouble(@Nonnull String key, double defaultValue) {
         Object o = map.get(key);
         if(o == null) {
             return defaultValue;
@@ -1051,7 +1086,8 @@ public class StateBundle
      * @return the String value associated with the given key, or defaultValue
      * if no valid String object is currently mapped to that key.
      */
-    public String getString(@Nullable String key, String defaultValue) {
+    @Nonnull
+    public String getString(@Nullable String key, @Nonnull String defaultValue) {
         final String s = getString(key);
         return (s == null) ? defaultValue : s;
     }
@@ -1086,7 +1122,8 @@ public class StateBundle
      * @return the CharSequence value associated with the given key, or defaultValue
      * if no valid CharSequence object is currently mapped to that key.
      */
-    public CharSequence getCharSequence(@Nullable String key, CharSequence defaultValue) {
+    @Nonnull
+    public CharSequence getCharSequence(@Nullable String key, @Nonnull CharSequence defaultValue) {
         final CharSequence cs = getCharSequence(key);
         return (cs == null) ? defaultValue : cs;
     }
@@ -1363,19 +1400,19 @@ public class StateBundle
      * @param key a String, or null
      * @return a String[] value, or null
      */
-//    @Nullable
-//    public String[] getStringArray(@Nullable String key) {
-//        Object o = map.get(key);
-//        if(o == null) {
-//            return null;
-//        }
-//        try {
-//            return (String[]) o;
-//        } catch(ClassCastException e) {
-//            typeWarning(key, o, "String[]", e);
-//            return null;
-//        }
-//    }
+    @Nullable
+    public String[] getStringArray(@Nullable String key) {
+        Object o = map.get(key);
+        if(o == null) {
+            return null;
+        }
+        try {
+            return (String[]) o;
+        } catch(ClassCastException e) {
+            typeWarning(key, o, "String[]", e);
+            return null;
+        }
+    }
 
     /**
      * Returns the value associated with the given key, or null if
@@ -1385,19 +1422,19 @@ public class StateBundle
      * @param key a String, or null
      * @return a CharSequence[] value, or null
      */
-//    @Nullable
-//    public CharSequence[] getCharSequenceArray(@Nullable String key) {
-//        Object o = map.get(key);
-//        if(o == null) {
-//            return null;
-//        }
-//        try {
-//            return (CharSequence[]) o;
-//        } catch(ClassCastException e) {
-//            typeWarning(key, o, "CharSequence[]", e);
-//            return null;
-//        }
-//    }
+    @Nullable
+    public CharSequence[] getCharSequenceArray(@Nullable String key) {
+        Object o = map.get(key);
+        if(o == null) {
+            return null;
+        }
+        try {
+            return (CharSequence[]) o;
+        } catch(ClassCastException e) {
+            typeWarning(key, o, "CharSequence[]", e);
+            return null;
+        }
+    }
 
     /**
      * Returns the value associated with the given key, or null if
@@ -1489,19 +1526,19 @@ public class StateBundle
      * @param key a String, or null
      * @return a Parcelable[] value, or null
      */
-//    @Nullable
-//    public Parcelable[] getParcelableArray(@Nullable String key) {
-//        Object o = map.get(key);
-//        if(o == null) {
-//            return null;
-//        }
-//        try {
-//            return (Parcelable[]) o;
-//        } catch(ClassCastException e) {
-//            typeWarning(key, o, "Parcelable[]", e);
-//            return null;
-//        }
-//    }
+    @Nullable
+    public Parcelable[] getParcelableArray(@Nullable String key) {
+        Object o = map.get(key);
+        if(o == null) {
+            return null;
+        }
+        try {
+            return (Parcelable[]) o;
+        } catch(ClassCastException e) {
+            typeWarning(key, o, "Parcelable[]", e);
+            return null;
+        }
+    }
 
     /**
      * Returns the value associated with the given key, or null if
@@ -1569,11 +1606,21 @@ public class StateBundle
     /**
      * Copies the keys and values of this {@link StateBundle} into the provided android.os.Bundle
      */
-    public void copyToBundle(Bundle bundle) {
+    public void copyToBundle(@Nonnull Bundle bundle) {
+        if(bundle == null) {
+            throw new IllegalArgumentException("Bundle should not be null!");
+        }
+
         for(Map.Entry<String, Object> entry : map.entrySet()) {
-            int typeValue = typeMap.get(entry.getKey());
             String key = entry.getKey();
             Object object = entry.getValue();
+
+            Integer typeValue = typeMap.get(entry.getKey());
+
+            if(typeValue == null) {
+                throw new IllegalStateException("Unexpected null in [" + key + " ]");
+            }
+
             switch(typeValue) {
                 case type_boolean:
                     bundle.putBoolean(key, (Boolean) object);
@@ -1617,12 +1664,8 @@ public class StateBundle
                     bundle.putStringArrayList(key, (ArrayList<String>) object);
                     break;
                 case type_CharSequenceArrayList:
-                    if(Build.VERSION.SDK_INT >= 8) {
-                        // noinspection unchecked
-                        bundle.putCharSequenceArrayList(key, (ArrayList<CharSequence>) object);
-                    } else {
-                        throw new UnsupportedOperationException("CharSequenceArrayList not supported on API < 8.");
-                    }
+                    // noinspection unchecked
+                    bundle.putCharSequenceArrayList(key, (ArrayList<CharSequence>) object);
                     break;
                 case type_BooleanArray:
                     bundle.putBooleanArray(key, (boolean[]) object);
@@ -1662,6 +1705,18 @@ public class StateBundle
                     // noinspection unchecked
                     bundle.putSparseParcelableArray(key, (SparseArray<Parcelable>) object);
                     break;
+                case type_StringArray:
+                    // noinspection unchecked
+                    bundle.putStringArray(key, (String[]) object);
+                    break;
+                case type_CharSequenceArray:
+                    // noinspection unchecked
+                    bundle.putCharSequenceArray(key, (CharSequence[]) object);
+                    break;
+                case type_ParcelableArray:
+                    // noinspection unchecked
+                    bundle.putParcelableArray(key, (Parcelable[]) object);
+                    break;
             }
         }
     }
@@ -1675,7 +1730,13 @@ public class StateBundle
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(map.keySet().size());
         for(String key : map.keySet()) {
-            TypeElement typeElement = new TypeElement(key, typeMap.get(key));
+            Integer type = typeMap.get(key);
+
+            if(type == null) {
+                throw new IllegalStateException("Unexpected null in [" + key + "]");
+            }
+
+            TypeElement typeElement = new TypeElement(key, type);
             dest.writeParcelable(typeElement, 0);
             dest.writeValue(get(key));
         }
@@ -1694,7 +1755,12 @@ public class StateBundle
                 stringBuilder.append(entry.getKey());
                 stringBuilder.append("]::[");
 
-                int type = typeMap.get(entry.getKey());
+                Integer type = typeMap.get(entry.getKey());
+
+                if(type == null) {
+                    throw new IllegalStateException("Unexpected null in [" + entry.getKey() + "]");
+                }
+
                 if(entry.getValue() == null) {
                     stringBuilder.append("<null>");
                 } else if(type == type_BooleanArray) {
@@ -1713,6 +1779,12 @@ public class StateBundle
                     stringBuilder.append(Arrays.toString((float[]) entry.getValue()));
                 } else if(type == type_DoubleArray) {
                     stringBuilder.append(Arrays.toString((double[]) entry.getValue()));
+                } else if(type == type_StringArray) {
+                    stringBuilder.append(Arrays.toString((String[]) entry.getValue()));
+                } else if(type == type_CharSequenceArray) {
+                    stringBuilder.append(Arrays.toString((CharSequence[]) entry.getValue()));
+                } else if(type == type_ParcelableArray) {
+                    stringBuilder.append(Arrays.toString((Parcelable[]) entry.getValue()));
                 } else {
                     stringBuilder.append(entry.getValue());
                 }
@@ -1732,7 +1804,12 @@ public class StateBundle
         Set<Map.Entry<String, Object>> entrySet = map.entrySet();
         for(Map.Entry<String, Object> entry : entrySet) {
             result += 31 * entry.getKey().hashCode();
-            int type = typeMap.get(entry.getKey());
+            Integer type = typeMap.get(entry.getKey());
+
+            if(type == null) {
+                throw new IllegalStateException("Unexpected null in hashCode for [" + entry.getKey() + "]");
+            }
+
             if(entry.getValue() == null) {
                 result += 0;
             } else if(type == type_BooleanArray) {
@@ -1751,11 +1828,21 @@ public class StateBundle
                 result += 31 * (Arrays.hashCode((float[]) entry.getValue()));
             } else if(type == type_DoubleArray) {
                 result += 31 * (Arrays.hashCode((double[]) entry.getValue()));
+            } else if(type == type_StringArray) {
+                result += 31 * (Arrays.hashCode((String[]) entry.getValue()));
+            } else if(type == type_CharSequenceArray) {
+                result += 31 * (Arrays.hashCode((CharSequence[]) entry.getValue()));
+            } else if(type == type_ParcelableArray) {
+                result += 31 * (Arrays.hashCode((Parcelable[]) entry.getValue()));
             } else {
                 result += 31 * entry.getValue().hashCode();
             }
         }
         return result;
+    }
+
+    private static boolean objectsEquals(Object a, Object b) {
+        return (a == b) || (a != null && a.equals(b));
     }
 
     @Override
@@ -1780,8 +1867,13 @@ public class StateBundle
             if(!other.typeMap.containsKey(stored.getKey())) {
                 return false;
             }
-            int type = typeMap.get(stored.getKey());
-            if(!other.typeMap.get(stored.getKey()).equals(type)) {
+            Integer type = typeMap.get(stored.getKey());
+
+            if(type == null) {
+                throw new IllegalStateException("Unexpected null in equals for [" + stored.getKey() + "]");
+            }
+
+            if(!objectsEquals(other.typeMap.get(stored.getKey()), type)) {
                 return false;
             }
             Object thisObj = stored.getValue();
@@ -1829,6 +1921,21 @@ public class StateBundle
                 }
             } else if(type == type_DoubleArray) {
                 boolean eq = Arrays.equals((double[]) thisObj, (double[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_StringArray) {
+                boolean eq = Arrays.equals((String[]) thisObj, (String[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_CharSequenceArray) {
+                boolean eq = Arrays.equals((CharSequence[]) thisObj, (CharSequence[]) thatObj);
+                if(!eq) {
+                    return false;
+                }
+            } else if(type == type_ParcelableArray) {
+                boolean eq = Arrays.equals((Parcelable[]) thisObj, (Parcelable[]) thatObj);
                 if(!eq) {
                     return false;
                 }

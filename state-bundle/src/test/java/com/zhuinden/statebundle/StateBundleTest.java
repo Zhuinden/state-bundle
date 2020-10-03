@@ -237,23 +237,23 @@ public class StateBundleTest {
         assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_DoubleArray);
     }
 
-//    @Test
-//    public void testStringArrayIsPutAndRetrieved() {
-//        StateBundle stateBundle = new StateBundle();
-//        stateBundle.putStringArray("key", new String[]{"asd", "def"});
-//        String[] val = stateBundle.getStringArray("key");
-//        assertThat(val).containsExactly("asd", "def");
-//        assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_StringArray);
-//    }
-//
-//    @Test
-//    public void testCharSequenceArrayIsPutAndRetrieved() {
-//        StateBundle stateBundle = new StateBundle();
-//        stateBundle.putCharSequenceArray("key", new String[]{"asd", "def"});
-//        CharSequence[] val = stateBundle.getCharSequenceArray("key");
-//        assertThat(val).containsExactly("asd", "def");
-//        assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_CharSequenceArray);
-//    }
+    @Test
+    public void testStringArrayIsPutAndRetrieved() {
+        StateBundle stateBundle = new StateBundle();
+        stateBundle.putStringArray("key", new String[]{"asd", "def"});
+        String[] val = stateBundle.getStringArray("key");
+        assertThat(val).containsExactly("asd", "def");
+        assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_StringArray);
+    }
+
+    @Test
+    public void testCharSequenceArrayIsPutAndRetrieved() {
+        StateBundle stateBundle = new StateBundle();
+        stateBundle.putCharSequenceArray("key", new String[]{"asd", "def"});
+        CharSequence[] val = stateBundle.getCharSequenceArray("key");
+        assertThat(val).containsExactly("asd", "def");
+        assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_CharSequenceArray);
+    }
 
     @Test
     public void testStateBundleIsPutAndRetrieved() {
@@ -277,16 +277,16 @@ public class StateBundleTest {
         assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_Parcelable);
     }
 
-//    @Test
-//    public void testParcelableArrayIsPutAndRetrieved() {
-//        StateBundle stateBundle = new StateBundle();
-//        TestKey testKey = new TestKey("hello");
-//        TestKey testKey2 = new TestKey("world");
-//        stateBundle.putParcelableArray("key", new Parcelable[]{testKey, testKey2});
-//        Parcelable[] val = stateBundle.getParcelableArray("key");
-//        assertThat(val).containsExactly(testKey, testKey2);
-//        assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_ParcelableArray);
-//    }
+    @Test
+    public void testParcelableArrayIsPutAndRetrieved() {
+        StateBundle stateBundle = new StateBundle();
+        TestKey testKey = new TestKey("hello");
+        TestKey testKey2 = new TestKey("world");
+        stateBundle.putParcelableArray("key", new Parcelable[]{testKey, testKey2});
+        Parcelable[] val = stateBundle.getParcelableArray("key");
+        assertThat(val).containsExactly(testKey, testKey2);
+        assertThat(stateBundle.typeMap.get("key")).isEqualTo(StateBundle.type_ParcelableArray);
+    }
 
     @Test
     public void testParcelableArrayListIsPutAndRetrieved() {
@@ -453,17 +453,17 @@ public class StateBundleTest {
         assertThat(stateBundle.getDoubleArray("key")).isNull();
     }
 
-//    @Test
-//    public void testGetStringArrayReturnsDefault() {
-//        StateBundle stateBundle = new StateBundle();
-//        assertThat(stateBundle.getStringArray("key")).isNull();
-//    }
-//
-//    @Test
-//    public void testGetCharSequenceArrayReturnsDefault() {
-//        StateBundle stateBundle = new StateBundle();
-//        assertThat(stateBundle.getCharSequenceArray("key")).isNull();
-//    }
+    @Test
+    public void testGetStringArrayReturnsDefault() {
+        StateBundle stateBundle = new StateBundle();
+        assertThat(stateBundle.getStringArray("key")).isNull();
+    }
+
+    @Test
+    public void testGetCharSequenceArrayReturnsDefault() {
+        StateBundle stateBundle = new StateBundle();
+        assertThat(stateBundle.getCharSequenceArray("key")).isNull();
+    }
 
     @Test
     public void testGetStateBundleReturnsDefault() {
@@ -649,19 +649,19 @@ public class StateBundleTest {
         assertThat(stateBundle.getDoubleArray("key")).isNull();
     }
 
-//    @Test
-//    public void testBooleanAsStringArrayReturnsDefaultValue() {
-//        StateBundle stateBundle = new StateBundle();
-//        stateBundle.putBoolean("key", true);
-//        assertThat(stateBundle.getStringArray("key")).isNull();
-//    }
-//
-//    @Test
-//    public void testBooleanAsCharSequenceArrayReturnsDefaultValue() {
-//        StateBundle stateBundle = new StateBundle();
-//        stateBundle.putBoolean("key", true);
-//        assertThat(stateBundle.getCharSequenceArray("key")).isNull();
-//    }
+    @Test
+    public void testBooleanAsStringArrayReturnsDefaultValue() {
+        StateBundle stateBundle = new StateBundle();
+        stateBundle.putBoolean("key", true);
+        assertThat(stateBundle.getStringArray("key")).isNull();
+    }
+
+    @Test
+    public void testBooleanAsCharSequenceArrayReturnsDefaultValue() {
+        StateBundle stateBundle = new StateBundle();
+        stateBundle.putBoolean("key", true);
+        assertThat(stateBundle.getCharSequenceArray("key")).isNull();
+    }
 
     @Test
     public void testBooleanAsStateBundleReturnsDefaultValue() {
@@ -677,12 +677,12 @@ public class StateBundleTest {
         assertThat(stateBundle.getParcelable("key")).isNull();
     }
 
-//    @Test
-//    public void testBooleanAsParcelableArrayReturnsDefaultValue() {
-//        StateBundle stateBundle = new StateBundle();
-//        stateBundle.putBoolean("key", true);
-//        assertThat(stateBundle.getParcelableArray("key")).isNull();
-//    }
+    @Test
+    public void testBooleanAsParcelableArrayReturnsDefaultValue() {
+        StateBundle stateBundle = new StateBundle();
+        stateBundle.putBoolean("key", true);
+        assertThat(stateBundle.getParcelableArray("key")).isNull();
+    }
 
     @Test
     public void testBooleanAsParcelableArrayListReturnsDefaultValue() {
@@ -754,8 +754,11 @@ public class StateBundleTest {
         otherBundle.putString("hello", "world");
         stateBundle.putBundle("stateBundle", otherBundle);
         stateBundle.putParcelable("parcelable", otherBundle);
+        stateBundle.putStringArray("stringArray", new String[]{"a", "b"});
+        stateBundle.putCharSequenceArray("charSequenceArray", new CharSequence[]{"a", "b"});
         final TestKey testKey = new TestKey("hello");
         final TestKey testKey2 = new TestKey("world");
+        stateBundle.putParcelableArray("parcelableArray", new Parcelable[]{testKey, testKey2});
         stateBundle.putParcelableArrayList("parcelableArrayList", new ArrayList<Parcelable>() {{
             add(testKey);
             add(testKey2);

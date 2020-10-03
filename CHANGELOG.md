@@ -1,5 +1,13 @@
 # Change log
 
+-State Bundle 1.4.0 (2020-10-03)
+--------------------------------
+- Add some missing `@Nullable` and `@Nonnull` annotations.
+
+- Re-add support for `putParcelableArray`, `putStringArray`, and `putCharSequenceArray`.
+
+- Increase minSDK to 14.
+
 -State Bundle 1.3.0 (2020-02-27)
 --------------------------------
 - Replace `android.support.annotation.NonNull` and `android.support.annotation.Nullable` with `javax.annotation.Nonnull` and `javax.annotation.Nullable`.

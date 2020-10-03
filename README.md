@@ -40,14 +40,9 @@ You can do:
 
 The following types are NOT supported:
 
-- `String[]`
-- `CharSequence[]`
-- `Parcelable[]`
 - `Size`
 - `SizeF`
 - `IBinder`
-
-Please note that `ArrayList<T>` works instead of arrays, so `new ArrayList<>(Arrays.asList(array))` works.
 
 All other `Bundle` types work. But as this is a non-Android Parcelable class, it can be used without mocking.
 
@@ -70,7 +65,7 @@ allprojects {
 and add the compile dependency to your module level gradle.
 
 ```groovy
-implementation 'com.github.Zhuinden:state-bundle:1.3.0'
+implementation 'com.github.Zhuinden:state-bundle:1.4.0'
 ```
 
 ## License
